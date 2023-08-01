@@ -16,6 +16,9 @@ if __name__ == '__main__':
     model = NeuralNetwork().to(device)
     print(model)
 
+    for name, param in model.named_parameters():
+        print(f"Layer: {name} | Size: {param.size()} | Values : {param[:2]} \n")
+
     # 创建形状为 1,28,28 的张量，随机创建用于预测数据
     shape = (1, 28, 28)
     X = torch.rand(shape, device=device)
